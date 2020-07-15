@@ -1,7 +1,8 @@
 #!/bin/sh
 
-DESTDIR=$1
-DOC=$DESTDIR/usr/share/doc/void
+PREFIX=$1
+DESTDIR=$2
+DOC=${DESTDIR}${PREFIX}/share/doc/void
 mkdir -p $DOC/
 
 cp -r src/ $DOC/markdown
@@ -11,5 +12,9 @@ cp -r book/html $DOC/html
 
 cp -r mandoc/ $DOC/mandoc
 
-mkdir -p $DESTDIR/usr/share/man/man7/
-install -m0644 void-docs.7 $DESTDIR/usr/share/man/man7/
+mkdir -p ${DESTDIR}${PREFIX}/share/man/man7/
+install -m0644 void-docs.7 ${DESTDIR}${PREFIX}/share/man/man7/
+
+sed -e "s,@PREFIX@,$PREFIX," void-docs.in > void-docs
+mkdir -p ${DESTDIR}${PREFIX}/bin/
+install -m0755 void-docs ${DESTDIR}${PREFIX}/bin/
