@@ -8,7 +8,7 @@ the same protocol as the packages tree. For details, please read
 ## Building
 
 The [build.sh](./build.sh) script builds HTML and roff versions of the Void
-documentation and the `void-docs.7` man page. It requires the following
+documentation and the `void-docs.1` man page. It requires the following
 dependencies:
 
 - `mdBook`

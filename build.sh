@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 # Build HTML mdbook
 echo "Building mdBook"
 mdbook build
@@ -20,5 +22,5 @@ cd -
 # Build reference man page
 echo "Building void-docs man page"
 pandoc \
-    -V "title=void-docs" -V "section=7" -V "header=Void Docs" -s \
-    -o "void-docs.7" "void-docs.md"
+    -V "title=void-docs" -V "section=1" -V "header=Void Docs" -s \
+    -o "void-docs.1" "void-docs.md"
